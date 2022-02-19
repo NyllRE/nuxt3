@@ -1,7 +1,7 @@
 <template>
    <div>
       <header>
-         <h2>Title</h2>
+         <img src="~/public/Nyllde.png"/>
          <nav>
             <NuxtLink to="/">
             Home
@@ -14,23 +14,38 @@
             </NuxtLink>
          </nav>
       </header>
-      <slot></slot>
+      <div class="content">
+         <slot></slot>
+      </div>
    </div>
 </template>
 
-<style>
+<style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&display=swap');
+
 * {
    margin: 0;
    box-sizing: border-box;
-   font-family: Verdana, Geneva, Tahoma, sans-serif;
+   font-family: 'Syne', sans-serif;
 }
 header {
    background: rgba(0, 0, 0, 0.631);
+   backdrop-filter: blur(5px);
    color: white;
+   position: fixed;
+   top: 0;
+   width: 100%;
    padding: .7em 4em;
    border-radius: 0 0 10px 10px;
    display: flex;
    justify-content: space-between;
+   img {
+      width: 35px;
+      border-radius: 6px
+   }
+}
+header > * {
+   font-weight: 800;
 }
 nav {
    display: flex;
@@ -43,6 +58,10 @@ nav > * {
    font-weight: 700;
    text-decoration: none;
    color: white;
+}
+
+.content {
+   margin-top: 5em;
 }
 
 </style>
