@@ -1,10 +1,12 @@
 <template>
-  <h1>text test component</h1>
+  <h1>Custom Layout</h1>
+
+  <slot></slot>
 </template>
 
 <script>
 export default {
-   name:"index"
+
 }
 </script>
 
