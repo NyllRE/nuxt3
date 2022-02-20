@@ -31,9 +31,11 @@ nav {
    color: white;
    position: fixed;
    top: 0;
-   width: 100%;
+   width: 98%;
    padding: .7em 4em;
-   border-radius: 0 0 10px 10px;
+   margin: 1em;
+   // border-radius: 0 0 10px 10px;
+   border-radius: 10px;
    display: flex;
    justify-content: space-between;
    img {
@@ -49,7 +51,7 @@ nav > * {
    gap: 30px;
    align-items: center;
    justify-content: center;
-   
+
    & > * {
    font-weight: 700;
    text-decoration: none;
