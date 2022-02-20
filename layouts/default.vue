@@ -18,6 +18,13 @@ div
 </template>
 
 <style lang="scss">
+
+@mixin so($or) {
+  @media (orientation: $or) {
+    @content
+  }
+};
+
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&display=swap');
 
 * {
@@ -26,14 +33,15 @@ div
    font-family: 'Syne', sans-serif;
 }
 nav {
-   background: rgba(0, 0, 0, 0.631);
+   background: rgba(0, 0, 0, 0.6);
    backdrop-filter: blur(5px);
+   z-index: 999;
    color: white;
    position: fixed;
-   top: 0;
-   width: 98%;
+   width: 95%;
    padding: .7em 4em;
-   margin: 1em;
+   margin: 1.5% 2%;
+   height: 3.5em;
    // border-radius: 0 0 10px 10px;
    border-radius: 10px;
    display: flex;
@@ -47,20 +55,30 @@ nav {
       width: 35px;
       border-radius: 6px
    }
-}
-nav > * {
-   font-weight: 800;
-}
-.nav-items {
-   display: flex;
-   gap: 30px;
-   align-items: center;
-   justify-content: center;
+
+   @include so(portrait) {
+      justify-content: center;
+
+      img {
+         display: none
+      }
+   }
 
    & > * {
-   font-weight: 700;
-   text-decoration: none;
-   color: white;
+      font-weight: 800;
+   }
+
+   .nav-items {
+      display: flex;
+      gap: 3em;
+      align-items: center;
+      justify-content: center;
+
+      & > * {
+      font-weight: 700;
+      text-decoration: none;
+      color: white;
+      }
    }
 }
 
