@@ -1,23 +1,20 @@
-<template>
-   <div>
-      <header>
-         <img src="~/public/Nyllde.png"/>
-         <nav>
-            <NuxtLink to="/">
-            Home
-            </NuxtLink>
-            <NuxtLink to="/">
-            Other Link
-            </NuxtLink>
-            <NuxtLink to="/about/me">
-            About
-            </NuxtLink>
-         </nav>
-      </header>
-      <div class="content">
-         <slot></slot>
-      </div>
-   </div>
+<template lang="pug">
+div
+   nav
+      img( src="~/public/Nyllde.png" )
+
+      .nav-items
+         NuxtLink( to="/" )
+            | Home
+
+         NuxtLink( to="/shows" )
+            | Shows
+            
+         NuxtLink( to="/about/me" )
+            | About
+
+   .content
+      slot
 </template>
 
 <style lang="scss">
@@ -28,7 +25,7 @@
    box-sizing: border-box;
    font-family: 'Syne', sans-serif;
 }
-header {
+nav {
    background: rgba(0, 0, 0, 0.631);
    backdrop-filter: blur(5px);
    color: white;
@@ -44,20 +41,20 @@ header {
       border-radius: 6px
    }
 }
-header > * {
+nav > * {
    font-weight: 800;
 }
-nav {
+.nav-items {
    display: flex;
    gap: 30px;
    align-items: center;
    justify-content: center;
-}
-
-nav > * {
+   
+   & > * {
    font-weight: 700;
    text-decoration: none;
    color: white;
+   }
 }
 
 .content {
