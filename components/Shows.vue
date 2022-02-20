@@ -12,47 +12,60 @@ async function searchForShows() {
 }
 </script>
 
-<template>
-<div class="container">
-  <h1>Search For Shows</h1>
-  <form class="form" @submit.prevent="searchForShows">
-    <input type="text" v-model="searchText">
-    <button> Search </button>
-  </form>
-
-
-  <div class="shows">
-    <div class="show" v-for="show in myData" :key="show.id">
-      <img :src="show.show?.image?.medium" alt="missing image" />
-    </div>
-  </div>
-</div>
-
+<template lang="pug">
+.container
+  h1 Search For Shows
+  form.form(@submit.prevent='searchForShows')
+    input(type='text' v-model='searchText')
+    button Search 
+  .shows
+    .show(v-for='show in myData' :key='show.id')
+      img(:src='show.show?.image?.medium' alt='missing image')
 </template>
 
 <style scoped lang="scss">
 .container {
-  margin-top: 20px;
+
   width: 100%;
+  height: 100vh;
+
+  background: url('~/public/streetgirl.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
   h1 {
     font-size: 50px;
     font-weight: 700;
     margin-bottom: 20px;
+    color: #fff;
   }
+  
 }
 .shows {
   display: grid;
   margin-top: 30px;
   grid-template-columns: 250px 250px 250px;
   row-gap: 30px;
+  padding: 3em;
+  background: #0005;
+  height: 60%;
+  overflow: hidden scroll;
+  border-radius: 30px;
+  backdrop-filter: blur(9px);
+  border: 1px solid #fff3;
+  box-shadow: 0 0 20px #000a;
+  &::-webkit-scrollbar { width: 0px }
   img {
     border-radius: 10px
   }
 }
+// .shows::
 .form {
   display: flex;
   flex-direction: column;
@@ -61,16 +74,17 @@ async function searchForShows() {
     border: none;
     padding: .4em;
     border-radius: 10px;
+    width: 20em;
     background: linear-gradient(145deg, #c7c7c7, #ececec);
-    box-shadow:  17px 17px 24px #b1b1b1,
-              -17px -17px 24px #ffffff;
+    box-shadow:  10px 10px 24px #b1b1b133,
+              -10px -10px 24px #ffffff33;
   }
   button {
     border: none;
     width: 60%;
     background: linear-gradient(145deg, #c7c7c7, #ececec);
-    box-shadow:  10px 10px 24px #b1b1b1,
-              -10px -10px 24px #ffffff;
+    box-shadow:  10px 10px 24px #b1b1b133,
+              -10px -10px 24px #ffffff33;
     color: rgb(70, 70, 70);
     font-weight: 600;
     padding: .6em 2em;
