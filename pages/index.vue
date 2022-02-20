@@ -1,12 +1,7 @@
 <template>
-  <Shows />
+  <Home />
 </template>
 
-<script>
-export default {
-
-}
-</script>
 
 <style>
 body {
