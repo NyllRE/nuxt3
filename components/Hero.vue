@@ -72,7 +72,7 @@
             h1 {
                font-style: normal;
                font-weight: 800;
-               font-size: 4em;
+               font-siz`e: 4em;
                line-height: 2em;
                transform: translateX(-5em);
                animation: slideOpacity .8s forwards;
