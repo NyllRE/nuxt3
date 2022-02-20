@@ -38,6 +38,11 @@ nav {
    border-radius: 10px;
    display: flex;
    justify-content: space-between;
+
+   top: -5em;
+   opacity: 0;
+   animation: slideOpacity 1s 1s forwards;
+
    img {
       width: 35px;
       border-radius: 6px
@@ -62,6 +67,15 @@ nav > * {
 .content {
    // margin-top: 5em;
    box-shadow: 0 -5em 10px 10px #000;
+}
+
+
+@keyframes slideOpacity {
+  to {
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+    top: 0;
+  }
 }
 
 </style>
