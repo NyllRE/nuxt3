@@ -17,7 +17,7 @@ useMeta({
         .hero-content
           h1 Hi, I'm Nyll 
           p I design beautiful Full Stack Web Applications
-          a( href="/about/me" ) Contact Me 
+          a( href="/about" ) Contact Me 
 
         .hero-image
           img( src="~/public/Nyllde.png" )
@@ -29,10 +29,24 @@ useMeta({
 
 
 <style scoped lang="scss">
+
+@mixin screen-min($min) {
+  @media (min-width: $min) {
+    @content
+  }
+};
+
+@mixin screen-orientation($or) {
+  @media (orientation: $or) {
+    @content
+  }
+};
+
 .container {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow-x: hidden;
   width: 100%;
   height: 100vh;
   color:white;
@@ -45,15 +59,30 @@ useMeta({
 
   .header-container {
     .wrapper {
-      width: 1200px;
+      width: 75em;
       margin: 0 auto;
+      @include screen-min(1440px) {max-width: 70em;}
+      @include screen-min(1080px) {max-width: 65em;}
 
       header {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        
+        @include screen-orientation(portrait) {
+          flex-direction: column;
+          font-size: .5em;
+          text-align: center;
+        }
 
         .hero-content {
+          
+
+          @include screen-orientation(portrait) {
+            margin-bottom: 5em;
+            text-align: center;
+            justify-content: center;
+          }
           h1 {
             font-style: normal;
             font-weight: 800;
@@ -61,6 +90,10 @@ useMeta({
             line-height: 2em;
             transform: translateX(-5em);
             animation: slideOpacity .8s forwards;
+
+            @include screen-orientation(portrait) {
+              font-size: 5em;
+            }
           }
 
           p {
@@ -71,6 +104,16 @@ useMeta({
             transform: translateX(-5em);
             opacity: 0;
             animation: slideOpacity .7s .3s forwards;
+            width: 100%;
+
+            @include screen-orientation(portrait) {
+              font-size: 2.5em;
+              margin: 0 auto;
+              overflow: wrap;
+              inline-size: 80%;
+              text-align: center;
+              margin-bottom: 1em;
+            }
           }
 
           a {
@@ -78,7 +121,7 @@ useMeta({
             font-size: 1em;
             color: white;
             padding: .8em 2.5em;
-            background: rgb(159, 56, 255);
+            background: linear-gradient(rgb(228, 0, 228), rgb(255, 29, 29));
             color: white;
             border-radius: 10px;
             transition: .3s;
@@ -88,7 +131,11 @@ useMeta({
             animation: slideOpacity .6s .6s forwards;
 
             &:hover {
-              transform: translateY(-8px)
+              transform: scale(1.1);
+            }
+
+            @include screen-orientation(portrait) {
+              font-size: 1.5em;
             }
           }
         }
@@ -108,6 +155,12 @@ useMeta({
             &:hover {
               transform: rotate(0deg);
             }
+
+            @include screen-min(1440px) {width: 25em;}
+            @include screen-min(1080px) {max-width: 22em;}
+            @include screen-orientation(portrait) {
+              display: none;
+            }
           }
         }
       }
@@ -121,5 +174,6 @@ useMeta({
     opacity: 1;
   }
 }
+
 
 </style>

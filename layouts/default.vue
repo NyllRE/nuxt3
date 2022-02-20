@@ -10,7 +10,7 @@ div
          NuxtLink( to="/shows" )
             | Shows
             
-         NuxtLink( to="/about/me" )
+         NuxtLink( to="/about" )
             | About
 
    .content

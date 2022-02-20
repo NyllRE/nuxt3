@@ -16,7 +16,7 @@ async function searchForShows() {
 .container
   h1 Search For Shows
   form.form(@submit.prevent='searchForShows')
-    input(type='text' v-model='searchText')
+    input.text(type='text' v-model='searchText')
     button Search 
   .shows
     .show(v-for='show in myData' :key='show.id')
@@ -45,7 +45,7 @@ async function searchForShows() {
     margin-bottom: 20px;
     color: #fff;
   }
-  
+
 }
 .shows {
   display: grid;
@@ -53,7 +53,7 @@ async function searchForShows() {
   grid-template-columns: 250px 250px 250px;
   row-gap: 30px;
   padding: 3em;
-  background: #0005;
+  background: #0007;
   height: 60%;
   overflow: hidden scroll;
   border-radius: 30px;
@@ -70,7 +70,7 @@ async function searchForShows() {
   display: flex;
   flex-direction: column;
   align-items: center;
-  input {
+  input.text {
     border: none;
     padding: .4em;
     border-radius: 10px;
@@ -78,6 +78,13 @@ async function searchForShows() {
     background: linear-gradient(145deg, #c7c7c7, #ececec);
     box-shadow:  10px 10px 24px #b1b1b133,
               -10px -10px 24px #ffffff33;
+    
+    transition: .3s;
+    background: white;
+    &:focus {
+      border: 0px none;
+      background: rgb(205, 205, 205);
+    }
   }
   button {
     border: none;
@@ -86,10 +93,22 @@ async function searchForShows() {
     box-shadow:  10px 10px 24px #b1b1b133,
               -10px -10px 24px #ffffff33;
     color: rgb(70, 70, 70);
+    background: white;
     font-weight: 600;
     padding: .6em 2em;
     margin: 1em;
     border-radius: 7px;
+    transition: .3s;
+
+    &:hover {
+      background: rgb(230, 181, 173);
+      transform: scale(1.1)
+    }
+
+    &:focus {
+      background: lightgreen;
+      transform: scale(1)
+    }
   }
 }
 </style>
