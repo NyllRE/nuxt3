@@ -17,10 +17,10 @@ useMeta({
         .hero-content
           h1 Hi, I'm Nyll 
           p I design beautiful Full Stack Web Applications
-          a(href="#") Contact Me 
+          a( href="/about/me" ) Contact Me 
 
         .hero-image
-          img(src="~/public/Nyllde.png" width="500")
+          img( src="~/public/Nyllde.png" )
 
       //- .social-icons
       //-   img
@@ -47,6 +47,7 @@ useMeta({
     .wrapper {
       width: 1200px;
       margin: 0 auto;
+
       header {
         display: flex;
         align-items: center;
@@ -58,13 +59,18 @@ useMeta({
             font-weight: 800;
             font-size: 4em;
             line-height: 2em;
+            transform: translateX(-5em);
+            animation: slideOpacity .8s forwards;
           }
 
           p {
             font-size: 1.8em;
             line-height: 1.5em;
             color: #91d4d8;
-            margin-bottom: .8em
+            margin-bottom: .8em;
+            transform: translateX(-5em);
+            opacity: 0;
+            animation: slideOpacity .7s .3s forwards;
           }
 
           a {
@@ -77,6 +83,9 @@ useMeta({
             border-radius: 10px;
             transition: .3s;
             display: inline-block;
+            transform: translateX(-5em);
+            opacity: 0;
+            animation: slideOpacity .6s .6s forwards;
 
             &:hover {
               transform: translateY(-8px)
@@ -84,12 +93,32 @@ useMeta({
           }
         }
         .hero-image {
+          position: relative;
+          box-shadow: 0 0 40px #000d;
+          transform: translateX(5em) rotate(10deg);
+          opacity: 0;
+          animation: slideOpacity .5s .9s forwards;
+
           img {
+            width: 30em;
             border-radius: 3em;
+            transform: rotate(-4deg);
+            transition: .3s;
+
+            &:hover {
+              transform: rotate(0deg);
+            }
           }
         }
       }
     }
+  }
+}
+
+@keyframes slideOpacity {
+  to {
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
   }
 }
 
